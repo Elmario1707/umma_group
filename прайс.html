@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс-лист услуг</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .pricing-container {
+            display: flex;
+            flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
+            gap: 20px; /* Уменьшаем расстояние между карточками */
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto; /* Добавляем горизонтальную прокрутку, если не помещается */
+            padding-bottom: 20px; /* Чтобы тень карточек не обрезалась */
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px; /* Уменьшаем внутренний отступ */
+            width: 280px; /* Уменьшаем ширину карточки */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #007BFF;
+            flex-shrink: 0; /* Запрещаем сжатие карточек */
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        .pricing-card h2 {
+            font-size: 28px; /* Уменьшаем размер заголовка */
+            margin-bottom: 15px;
+            color: #333;
+            position: relative;
+        }
+        .pricing-card h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #007BFF;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .pricing-card .price {
+            font-size: 40px; /* Уменьшаем размер цены */
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .pricing-card .price span {
+            font-size: 18px; /* Уменьшаем размер валюты */
+            color: #777;
+        }
+        .pricing-card .currency {
+            font-size: 16px; /* Уменьшаем размер текста валюты */
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .highlight {
+            background: #28a745;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .pricing-card ul li {
+            margin: 10px 0; /* Уменьшаем отступы между пунктами */
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px; /* Уменьшаем размер текста пунктов */
+        }
+        .pricing-card ul li::before {
+            content: '✔️';
+            margin-right: 8px;
+            color: #28a745;
+        }
+        .pricing-card button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px 24px; /* Уменьшаем размер кнопки */
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            max-width: 180px; /* Уменьшаем максимальную ширину кнопки */
+        }
+        .pricing-card button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,123,255,0.1) 10%, transparent 10.01%);
+            transform: rotate(45deg);
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="pricing-container">
+    <div class="pricing-card">
+        <h2>Базовый</h2>
+        <div class="highlight">Отлично для старта</div>
+        <div class="price">$35</div>
+        <div class="currency">(≈ 3061 с)</div>
+        <ul>
+            <li>Месячное обслуживание</li>
+            <li>Онлайн-консультации</li>
+            <li>Базовая маркировка</li>
+        </ul>
+        <button>Выбрать</button>
+    </div>
+
+    <div class="pricing-card">
+        <h2>Расширенный</h2>
+        <div class="highlight">Лучшее соотношение</div>
+        <div class="price">$80</div>
+        <div class="currency">(≈ 6996 с)</div>
+        <ul>
+            <li>Месячное обслуживание</li>
+            <li>Онлайн-консультации</li>
+            <li>Разновидность маркировки</li>
+            <li>Сопровождение в регистрации</li>
+        </ul>
+        <button>Выбрать</button>
+    </div>
+
+    <div class="pricing-card">
+        <h2>Премиум</h2>
+        <div class="highlight">Все включено</div>
+        <div class="price">$120</div>
+        <div class="currency">(≈ 10494 с)</div>
+        <ul>
+            <li>Месячное обслуживание</li>
+            <li>Онлайн-консультации</li>
+            <li>Обратная связь 24/7</li>
+            <li>Разновидность маркировки</li>
+            <li>Сопровождение в регистрации</li>
+            <li>Полная документация</li>
+        </ul>
+        <button>Выбрать</button>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
 
